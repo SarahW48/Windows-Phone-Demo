@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome To UP+</title>
+
+<script language="javascript" type="text/javascript" src="jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="jquery-ui-1.8.23.custom.min.js"></script>
+<script language="javascript" type="text/javascript">
+
+$(function (){
+	$(".fadein").add("img").fadeIn(2000);
+	var oNewP = $("<p> this is team up+</p>");
+	oNewP.insertAfter("#myTarget");	
+})
+
+$(function(){
+	var divName = "";
+	$("input:eq(0)").click(function(){
+		$("div").add("img").hide(2000);
+	})	
+	$("#client").click(function(){
+		if(divName == "client") return;
+		if(divName != ""){
+			$("#" + divName + "window").hide("blind", 800,function(){
+				$("#clientwindow").show("fold",{direction:"left"}, 1300);		
+			});
+		}
+		else{
+			$("#clientwindow").show("fold",{direction:"left"}, 1300);		
+		}
+		 var a=document.getElementById("clientimg");
+         a.setAttribute("src","web_pics/client_color.jpg");
+		 var b=document.getElementById("projectimg");
+         b.setAttribute("src","web_pics/project_grey.jpg");
+		  var c=document.getElementById("teamimg");
+         c.setAttribute("src","web_pics/team_grey.jpg");
+		  var d=document.getElementById("contactimg");
+         d.setAttribute("src","web_pics/contact_grey.jpg");
+		  var e=document.getElementById("mediaimg");
+         e.setAttribute("src","web_pics/media_grey.jpg");
+		 var f=document.getElementById("newsletterimg");
+         f.setAttribute("src","web_pics/newsletter_grey.jpg");
+		$("#cross").fadeIn();
+		divName = "client";
+	})
+	$("#project").click(function(){
+		if(divName == "project") return;
+		if(divName != ""){
+			$("#" + divName + "window").hide("blind", 800,function(){
+				$("#projectwindow").show("fold",{direction:"left"}, 1300);		
+			});
+		}
+		else{
+			$("#projectwindow").show("fold",{direction:"left"}, 1300);		
+		}
+		var b=document.getElementById("projectimg");
+         b.setAttribute("src","web_pics/project_color.jpg");
+		var a=document.getElementById("clientimg");
+         a.setAttribute("src","web_pics/client_grey.jpg");
+		  var c=document.getElementById("teamimg");
+         c.setAttribute("src","web_pics/team_grey.jpg");
+		  var d=document.getElementById("contactimg");
+         d.setAttribute("src","web_pics/contact_grey.jpg");
+		  var e=document.getElementById("mediaimg");
+         e.setAttribute("src","web_pics/media_grey.jpg");
+		 var f=document.getElementById("newsletterimg");
+         f.setAttribute("src","web_pics/newsletter_grey.jpg");
+		$("#cross").fadeIn();
+		divName = "project";
+	})
+	$("#team").click(function(){
+		if(divName == "team") return;
+		if(divName != ""){
+			$("#" + divName + "window").hide("blind", 800,function(){
+				$("#teamwindow").show("fold",{direction:"left"}, 1300);		
+			});
+		}
+		else{
+			$("#teamwindow").show("fold",{direction:"left"}, 1300);		
+		}
+		var c=document.getElementById("teamimg");
+         c.setAttribute("src","web_pics/team_color.jpg");
+		var a=document.getElementById("clientimg");
+         a.setAttribute("src","web_pics/client_grey.jpg");
+		var b=document.getElementById("projectimg");
+         b.setAttribute("src","web_pics/project_grey.jpg");
+		  var d=document.getElementById("contactimg");
+         d.setAttribute("src","web_pics/contact_grey.jpg");
+		  var e=document.getElementById("mediaimg");
+         e.setAttribute("src","web_pics/media_grey.jpg");
+		 var f=document.getElementById("newsletterimg");
+         f.setAttribute("src","web_pics/newsletter_grey.jpg");
+		$("#cross").fadeIn();
+		divName = "team";
+	})
+	$(".contactIcon").click(function(){
+		if(divName == "contact") return;
+		if(divName != ""){
+			$("#" + divName + "window").hide("blind", 800,function(){
+				$("#contactwindow").show("fold",{direction:"left"}, 1300);		
+			});
+		}
+		else{
+			$("#contactwindow").show("fold",{direction:"left"}, 1300);		
+		}
+		var d=document.getElementById("contactimg");
+         d.setAttribute("src","web_pics/contact_color.jpg");
+		var a=document.getElementById("clientimg");
+         a.setAttribute("src","web_pics/client_grey.jpg");
+		var b=document.getElementById("projectimg");
+         b.setAttribute("src","web_pics/project_grey.jpg");
+		  var c=document.getElementById("teamimg");
+         c.setAttribute("src","web_pics/team_grey.jpg");
+		  var e=document.getElementById("mediaimg");
+         e.setAttribute("src","web_pics/media_grey.jpg");
+		 var f=document.getElementById("newsletterimg");
+         f.setAttribute("src","web_pics/newsletter_grey.jpg");
+		$("#cross").fadeIn();
+		divName = "contact";
+	})
+	$(".mediaIcon").click(function(){
+		if(divName == "media") return;
+		if(divName != ""){
+			$("#" + divName + "window").hide("blind", 800,function(){
+				$("#mediawindow").show("fold",{direction:"left"}, 1300);		
+			});
+		}
+		else{
+			$("#mediawindow").show("fold",{direction:"left"}, 1300);		
+		}
+		 var e=document.getElementById("mediaimg");
+         e.setAttribute("src","web_pics/media_color.jpg");
+		var a=document.getElementById("clientimg");
+         a.setAttribute("src","web_pics/client_grey.jpg");
+		var b=document.getElementById("projectimg");
+         b.setAttribute("src","web_pics/project_grey.jpg");
+		  var c=document.getElementById("teamimg");
+         c.setAttribute("src","web_pics/team_grey.jpg");
+		  var d=document.getElementById("contactimg");
+         d.setAttribute("src","web_pics/contact_grey.jpg");
+		 var f=document.getElementById("newsletterimg");
+         f.setAttribute("src","web_pics/newsletter_grey.jpg");
+		$("#cross").fadeIn();
+		divName = "media";
+	})
+	$("#newsletter").click(function(){
+		if(divName == "newsletter") return;
+		if(divName != ""){
+			$("#" + divName + "window").hide("blind", 800,function(){
+				$("#newsletterwindow").show("fold",{direction:"left"}, 1300);		
+			});
+		}
+		else{
+			$("#newsletterwindow").show("fold",{direction:"left"}, 1300);		
+		}
+		var f=document.getElementById("newsletterimg");
+         f.setAttribute("src","web_pics/newsletter_color.jpg");
+		var a=document.getElementById("clientimg");
+         a.setAttribute("src","web_pics/client_grey.jpg");
+		var b=document.getElementById("projectimg");
+         b.setAttribute("src","web_pics/project_grey.jpg");
+		  var c=document.getElementById("teamimg");
+         c.setAttribute("src","web_pics/team_grey.jpg");
+		  var d=document.getElementById("contactimg");
+         d.setAttribute("src","web_pics/contact_grey.jpg");
+		  var e=document.getElementById("mediaimg");
+         e.setAttribute("src","web_pics/media_grey.jpg");
+		$("#cross").fadeIn();
+		divName = "newsletter";
+	})
+	$("#cross").click(function(){
+		var a=document.getElementById("clientimg");
+         a.setAttribute("src","web_pics/client_color.jpg");
+		var b=document.getElementById("projectimg");
+         b.setAttribute("src","web_pics/project_color.jpg");
+		  var c=document.getElementById("teamimg");
+         c.setAttribute("src","web_pics/team_color.jpg");
+		  var d=document.getElementById("contactimg");
+         d.setAttribute("src","web_pics/contact_color.jpg");
+		  var e=document.getElementById("mediaimg");
+         e.setAttribute("src","web_pics/media_color.jpg");
+		 var f=document.getElementById("newsletterimg");
+         f.setAttribute("src","web_pics/newsletter_color.jpg");
+		$(".windows").fadeOut();
+		$("#cross").fadeOut();
+		divName = "";
+	})
+})
+
+</script>
+<link href="text.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+body {
+	background-image: url(web_pics/up+_backround.png);
+	background-color:rgb(167,168,172);
+	background-repeat: no-repeat;
+}
+
+#cross {
+	position: absolute;
+	width: 35px;
+	height: 26px;
+	z-index: 2;
+	left: 1100px;
+	top: 110px;
+}
+</style>
+</head>
+
+<body>
+<h1>&nbsp;</h1>
+<div style="display:none" id="cross"><img src="web_pics/cross.png" width="30" height="30" /></div>
+<div style="display:none;" class="fadein">
+    
+  <p id= "client"><img id="clientimg" src="web_pics/client_color.jpg" class="clientIcon"> </p>
+  <p id= "project"><img id="projectimg" src="web_pics/project_color.jpg" class="bigIcon"></p>
+  <p id="team"><img id="teamimg" src="web_pics/team_color.jpg" class="bigIcon"></p>
+  <p> <img id="contactimg" src="web_pics/contact_color.jpg" class="contactIcon"><img id="mediaimg" src="web_pics/media_color.jpg" class="mediaIcon"></p>
+   <p id= "newsletter"><img id="newsletterimg" src="web_pics/newsletter_color.jpg" class="bigIcon"></p>
+   <p id= "upimg"><img id="upimg" src="web_pics/up+_up+.png" class="up"></p>
+   <p id= "uplogo"><img id="uplogo" src="web_pics/up+_logo.png" class="uplogo"></p>
+   <a href="http://www.etc.cmu.edu/site/" id= "etclogo"><img id="etclogoimg" src="web_pics/up+_etc.png" class="etclogo"></a>
+  <a href="http://www.microsoft.com/en-us/default.aspx" id= "microsoftlogo"><img id="microsoftlogoimg" src="web_pics/up+_micro.png" class="microsoftlogo"></a>
+</div>
+    
+<div id="clientwindow" style="display:none" class="windows">
+<h1>Client</h1>
+<p>Up+ is excited to work with Arnold Blinn in collaboration with Microsoft Corporation, with the goal of designing and building an original, interactive retail experience for consumers of the Windows Phone 8. Microsoft (Nasdaq “MSFT”) is the worldwide leader in software, services and solutions, through which the company helps people and businesses realize their full potential. </p></div>
+<div id="projectwindow" style="display:none" class="windows"><h1>Project</h1>
+<p>Up+ is an ETC semester project sponsored by Microsoft Corporation and based in Pittsburgh, PA. The project aims to create a personalized, and interactive retail experience for the new Windows Phone 8. As the years progress, mobile devices grow more ubiquitous and more powerful. However, marketing these devices has remained a challenge, as mobile device usage is largely a one-person experience which is not designed for over-the-shoulder viewing. Further, mobile device retail displays in the typical phone store show a remarkable lack of sophistication when compared to the capabilities of the mobile devices being marketed. In order to devise more inventive ways to market the Windows Phone 8, Up+ will explore new and innovative methods of gathering information from a consumer in a fun and interesting way. The team will then use this information to create a unique and enjoyable overall experience customized to that consumer. </p></div>
+<div id="teamwindow" style="display:none" class="windows"><h1>Team</h1><img src="web_pics/teamphoto.JPG" style="width:100%;height:70%;" ><p>This team is making the an interactive retail experience for Windows Phone. The experience is aiming to showcase the unique features and how personalized Windows Phone is.</p>
+<p><img src="web_pics/team/JJ.png" style="width:30;height:30%;"></p>
+<p>Jingying (JJ) is a programmer in the team with a background of Software Engineering. She mainly focus on the backend in this project and involve in the whole process.</p>
+<p><img src="web_pics/team/Bhavna.jpg" style="width:30;height:30%;"></p>
+<p>Bhavna graduated from the Georgia Institute of Technology with a Bachelor of Science degree in Computer Science and a Certificate in Social & Personality Psychology. Her theoretical knowledge is bolstered by her work in both HCI and Computer Graphics research, and is complemented by her drive to continually create. Bhavna looks forward to ultimately finding a job where she can fulfill her passions for research, technology, and creation, while working with a diverse team of like-minded technologists and artists. Outside of school, Bhavna is a gamer, an avid reader, a frequent concert-goer, and a fan of all kinds of music. She has been trained in Carnatic (Indian Classical) singing since an early age, and enjoys attending live performances, especially those where innovative technologies and methods are used to promote interaction between the performer and the audience. Bhavna is working in programming and research on Up+.http://bhavnam.weebly.com/</p>
+<p><img src="web_pics/team/Star.jpg" style="width:30;height:30%;"></p>
+<p>Star gets a great passion for Windows Phone and he predicts Windows Phone will be the No.1 in the smartphone market in about 3 years. He is taking the job of producing, including the product management and internal communication. And he is trying hard with the programming of  the underlying algorithm and design of the data presentation. <a href="http://www.starxingxu.com">www.starxingxu.com</a></p>
+<p><img src="web_pics/team/Weiwei.jpg" style="width:30;height:30%;"></p>
+<p>Weiwei graduated from Beijing University of Posts and Telecommunications majored in Telecommunication Engineering. With solid theoretical knowledge of both hardware and software, she is a creative and efficient programmer interested in Computer Graphic and Game Development. As a programmer and technical artist on the team, Weiwei focuses on the frontend and is involved in the design process.  In her spare time, she is a gamer who like to experience all kinds of games, and she likes traveling a lot. www.whuocmu.com/</p>
+<p><img src="web_pics/team/Sylvia.jpg" style="width:30;height:30%;"></p>
+<p>Ningyu (Sylvia) Mao is a programmer who majored in Computer Science in Peking University. She also got a bachelor degree in Economics. During her undergraduate life, she especially worked on visualization and visual analytics. She just finished her first year in ETC, where she has the chance working with large range of platforms, such as wii-mote, joystick, HMD, kinect. She is interested in mobile application development and human-computer interaction.  </p>
+<p><img src="web_pics/team/Sarah.jpg" style="width:30;height:30%;"></p>
+<p>Xiaochen(Sarah) Wang, an energetic and enthusiastic girl, is currently a first year graduate student in ETC. She has an artistic taste of all new emerging things around her. On the other hand, she has a scientist perspective towards affairs happened in her life.She got her Bachelor’s degree in Computer Science and Digital Media Technology from Huazhong Technology of Science and Technology. She loves Computer Graphics and Computer Vision. The love towards games led her to join ETC and she pursuits her dream here. </p>
+<p><img src="web_pics/team/Zifeng.jpg" style="width:30;height:30%;" ></p>
+<p>Zifeng Tian</p>
+<p>Designer</p>
+</div>
+<div id="contactwindow" style="display:none" class="windows"><h1>Contact</h1>
+<p>Please contact etc-microsoft-mobile@lists.andrew.cmu.edu</p></div>
+<div id="mediawindow" style="display:none" class="windows"><h1>Media</h1><p>Media description</p></div>
+<div id="newsletterwindow" style="display:none" class="windows"><h1>Newsletters</h1>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/1newsletter.docx"><p/>newsletters1</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/2newsletter.docx"><p/>newsletters2</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/3newsletter.docx"><p/>newsletters3</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/4newsletter.docx"><p/>newsletters4</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/5newsletter.docx"><p/>newsletters5</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/6newsletter.docx"><p/>newsletters6</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/7newsletter.docx"><p/>newsletters7</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/8newsletter.docx"><p/>newsletters8</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/9newsletter.docx"><p/>newsletters9</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/10newsletter.docx"><p/>newsletters10</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/11newsletter.docx"><p/>newsletters11</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/12newsletter.docx"><p/>newsletters12</p></a>
+<a href="http://www.etc.cmu.edu/projects/up-plus/newsletter/13newsletter.docx"><p/>newsletters13</p></a>
+</div>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,66 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+<script language="javascript" type="text/javascript">
+
+$(document).ready(function(){
+ // $("#pic0").animate({"top": "-=40px"}, "slow");
+  $("#pic0").animate({"top": "-=40px"}, "slow");
+  setTimeout("tileanimatedown()",3000);
+  $("#pic0").click(function(){
+   alert("Hello");
+});
+});
+
+function tileanimatedown()
+{
+$("#pic0").animate({"top": "+=40px"}, "slow");
+}
+
+
+</script>
+
+<style>
+
+.main{
+ width:282px;
+ height:212px;
+ left:100px; 
+ top:150px;
+ border:0px solid #ccc;
+}
+
+</style>
+
+
+
+
+</head>
+
+<body>
+<!--<div style="background:url('images/tiles/build-in/mail_L.png'); background-size:205px 99px; background-color:orange; left:350; top:312; width: 205 px; height: 99px; position: absolute">
+<div style="margin-left: 5px"><p style= "margin-top: 1px";><font size="3" color="white">Harry Potter</font><br><font size="1" color="white">Ginny Potter said: Don't forget brunch!</font></p></div></div>
+-->
+<!--<img src= "images/tiles/violet.png" style="position:absolute; left:350px; top:100px; width:100px; length:100px; z-index:-1">
+<p style="position:absolute; left:350px; top:100px; width:100px; length:100px; z-index:-1">Hello</p>-->
+<div style="position:absolute; left:350px; top:100px; clip:rect(0px,100px,100px,0px);">
+<div style="background-image:url('images/tiles/app.png'); left:0px; top:0px; background-color: brown; width:100px;height:100px; position: absolute"> 
+<div style="position:absolute;margin-left:5px;bottom: 0px">
+<b ><font size="3" color="black">Jackkkkkkkkkkkkkkkkkkkkk</font></b>
+</div>
+</div> 
+ </div>
+
+<div style="position:absolute; left:350px; top:100px; clip:rect(0px,100px,100px,0px);">
+<div style="position:absolute; left:0px; top:0px">
+<img id = "pic0" src='images/tiles/contact1.png' style=' background-color:orange;position:absolute; width:100px; length:100px;'/>
+</div>
+ </div> 
+ 
+</body>
+</html>

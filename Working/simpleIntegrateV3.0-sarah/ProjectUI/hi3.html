@@ -1,0 +1,66 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+<script language="javascript" type="text/javascript">
+/*
+$(document).ready(function(){
+ // $("#pic0").animate({"top": "-=40px"}, "slow");
+  $("#pic0").animate({"top": "-=40px"}, "slow");
+  setTimeout("tileanimatedown()",3000);
+  $("#pic0").click(function(){
+   alert("Hello");
+});
+});
+
+function tileanimatedown()
+{
+$("#pic0").animate({"top": "+=40px"}, "slow");
+}
+ */
+//   z-index:1 
+
+$(document).ready(function(){
+  $("#pic2").click(function(){
+  $("#pichi").animate({"top": "-=222px"}, "slow");
+  });
+});
+
+</script>
+
+<style>
+
+.main{
+ width:282px;
+ height:212px;
+ left:100px; 
+ top:150px;
+ border:0px solid #ccc;
+}
+
+</style>
+
+
+
+
+</head>
+
+<body background="journey_images/white-wallpapers.jpg">
+
+<img id = "frame" src="journey_images/frame.png" style="position:absolute; left:330px; top:23px; width:250px; height:500px">
+
+<div style="position:absolute; left:350px; top:100px; clip:rect(0px,211px,317px,0px); z-index:1">
+<div id= "pichi" style="position:absolute; left:0px; top:0px"> 
+<img id = "pic2" src='journey_images/18-30female.png' style="width:211px; height:317px">
+</div> 
+</div> 
+
+
+          
+			
+</body>
+</html>

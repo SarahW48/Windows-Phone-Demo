@@ -1,0 +1,317 @@
+
+<html><head>
+
+<style type="text/css">
+	html {
+		overflow: hidden;
+	}
+	body {
+		margin: 0px;
+		padding: 0px;
+		background:url('./journey_images/back1.jpg') no-repeat fixed center;
+		width: 100%;
+		height: 100%;
+		cursor: default;
+	}
+	#screen {
+		position:absolute;
+		left: 5%;
+		right: 5%;
+		top: 0%;
+		width: 90%;
+		height: 100%;
+		background:url('./journey_images/back22.png') fixed center;
+		overflow: hidden;
+	}
+	#screen img {
+		position: absolute;
+		visibility: hidden;
+		left: -10000px;
+		filter: alpha(opacity=100);
+		-ms-interpolation-mode:nearest-neighbor;
+	}
+	#screen div {
+		position: absolute;
+		top: -10000px;
+		font-family: verdana, arial, helvetica, sans-serif;
+		font-weight: bold;
+		text-align: center;
+		filter: alpha(opacity=100);
+		color: #FFF;
+	}
+	#screen .link {
+		color: #FF8000;
+	}
+</style>
+
+<script type="text/javascript">
+/*
+ // the background moveinng animation
+var c = 0;             
+function sf(){
+	c++;
+	document.getElementById("screen").style.backgroundPosition = "0 " + c;
+}
+setInterval("sf()",16); */
+
+// level initialize
+ var level=0;
+
+var i3D = function() {
+	// private variables and methods
+	var O   = new Array(100);
+	var N   = 0;
+	var scr = false;
+	var xm  = 0;
+	var ym  = 0;
+	var cx  = 0;
+	var cy  = -2000;
+	var cz  = 0;
+	var zm  = 0;
+	var cr  = 0;
+	var nx  = 0;
+	var ny  = 0;
+	var nw  = 0;
+	var nh  = 0;
+	var cg  = false;
+	var mo  = false;
+	// to contorl the look of each level
+	var display=false;
+	var path, FL, FS, Z;
+    var omob, hlb;
+	// crossbrowsers events
+	function addEvent (o, e, f) {
+		var r = false;
+		if (window.addEventListener) { o.addEventListener(e, f, false); r = true; } 
+		else if (window.attachEvent) { r = o.attachEvent('on' + e, f); }
+		return r;
+	}
+	// append HTML Element
+	function Append (tag, att, css) {
+		var object = document.createElement(tag);
+		for( var i in att) object[i] = att[i];
+		for( var i in css) object.style[i] = css[i];
+		this.appendChild(object);
+		return object;
+	}
+	// window resize 
+	function resize () {
+		var o = scr;
+		for (nx = 0, ny = 0; o != null; o = o.offsetParent) {
+			nx += o.offsetLeft;
+			ny += o.offsetTop;
+		}
+		nw = scr.offsetWidth;
+		nh = scr.offsetHeight;
+	}
+	// cache xbrowser opacity 
+	function initOpacity (o) {
+		if (o.filters && o.filters.alpha) {
+			o.alpha = o.filters.alpha;
+			o.opacity = function (alpha) { this.alpha.opacity = Math.round(alpha); }
+		} else {
+			o.alpha = o.style;
+			o.opacity = function (alpha) { this.alpha.opacity = alpha / 100; }
+		}
+	}
+	// Image3D Constructor 
+	function Image3D (param) {
+		var options = param[4] || {};
+		// image Element
+		this.img = scr.append('img', {
+				'src' : path + param[0], 
+				'onclick' : this.click, 
+				'parent' : this
+			}
+		);
+		this.loaded = false;
+		this.X      = param[1];
+		this.Y      = -param[2];
+		this.Z      = param[3];
+		this.SX     =  1;
+		this.SY     =  this.SX;
+		this.xb     = 0;
+		this.yb     = 0;
+		this.zb     = 0;
+		this.ab     = 0;
+		this.w2D    = 0;
+		this.h2D    = 0;
+		this.x2D    = 0;
+		this.y2D    = 0;
+		this.r      = 0;
+		// image style
+		this.icss = this.img.style;
+		initOpacity(this.img);
+		
+		O[N++] = this;
+	}
+	// prototype images functions 
+	Image3D.prototype = {
+		// hide non moving images 
+		hide : function () {
+			if (this.visible) {
+				this.visible = false;
+				this.img.style.width = '0px';
+				this.tp = -10000;
+			}
+		},
+		// images onclick 
+		click : function() {
+			var that = this.parent;
+			// go to image ---- */
+			zm = that.Z + 5;
+			cg = true;
+            // click jump to next level
+			level++;
+			return false;
+		},
+		// main rendering function
+		display : function () {
+			if (this.loaded) {
+				// 3D coordinates
+				var x = this.X - cx;
+				var y = this.Y - cy;
+				var z = this.Z - cz;
+				//image visible 
+				if (z > 0) {
+					// 3D to 2D transform
+					this.r = FL / (FL + (z * Z));
+					this.w2D = this.W * this.r * Z * this.SX;
+					this.h2D = this.H * this.r * Z * this.SY;
+					this.x2D = Math.floor((nw * .5) + (x * this.r * Z) - (this.w2D * .5));
+					this.y2D = Math.floor((nh * .5) + (y * this.r * Z) - this.h2D);
+					// image in screen 
+					if (this.x2D + this.w2D > 0 && this.x2D < nw) {
+						this.visible = true;
+						// image is moving
+						if (this.x2D != this.xb || this.y2D != this.yb || z != this.zb) {
+							this.xb    = this.x2D;
+							this.yb    = this.y2D;
+							this.zb    = z;
+							// html rendering 
+							this.icss.left   = this.x2D + 'px';
+							this.icss.top    = this.y2D + 'px';
+							this.icss.width  = Math.ceil(this.w2D)  + 'px';
+							this.icss.height = Math.ceil(this.h2D)  + 'px';
+							this.icss.zIndex = Math.round(10000 - z);
+							// fade in/out
+							var a = Math.max(0, Math.min(100, z));
+							if (a != this.ab) {
+								this.ab = a;
+								this.img.opacity(a);
+							}
+						}
+					} else this.hide();
+				} else this.hide();
+			} else {
+				// image onload
+				if (this.img.complete && this.img.width) {
+					// get size image 
+					this.W      = this.img.width;
+					this.H      = this.img.height;
+					this.loaded = true;
+					this.img.style.visibility = 'visible';
+				}
+			}
+		}
+		
+	}
+	// public methods 
+	return {
+		// initialize script 
+		init : function (container, imagepath, focalLength, zoom, fontSize, onmouseover_border, hyperlink_border, structure) {
+			// container 
+			scr = document.getElementById(container);
+			scr.append = Append;
+			if (!scr) return false;
+			// init 
+			resize();
+			path = imagepath;
+			FL   = focalLength;
+			FS   = fontSize;
+			Z    = zoom;
+			omob = onmouseover_border;
+			hlb  = hyperlink_border;
+			xm   = nx - (document.body.offsetWidth) + nw;
+			ym   = -ny - nh * .5;
+			// camera xy position 
+			addEvent(window.document, 'mousemove', function(e) {
+				e = e || window.event;
+				xm = nx - (e.clientX * 2) + nw;
+				ym = -ny + (e.clientY * 2) - nh * 2;
+				return false;
+			});
+			// image onclick 
+			addEvent(scr, 'click', function() {
+				if (!cg) zm = 0;
+				cg = false;
+				return false;
+			});
+			// window resize 
+			addEvent(window, 'resize', resize);
+			// mouse wheel - camera z position 
+			if (window.addEventListener) scr.addEventListener('DOMMouseScroll', function(e) {
+				if (e.preventDefault) e.preventDefault();
+				zm += (e.detail * 40);
+				return false;
+			}, false); 
+			// create objects 
+			for (var i = 0, n = structure.length; i < n; i++)  {
+				var s = structure[i]; 
+				var ok = new Image3D(s);
+			}
+			// launch script 
+			setInterval(i3D.run, 16);
+		},
+		// main loop
+		run : function () {
+			// camera ease
+			cx -= Math.round((xm + cx) * .1);
+			cy += Math.round((ym - cy) * .1);
+			cz += Math.round((zm - cz) * .1);
+			// display loop
+			var i = N;
+			// display and hide images
+			while (i--) {
+				if ((i==level*2)||(i==(level*2+1))){ 
+					O[i].display();
+					}
+					else
+					O[i].img.style.visibility = 'hidden';
+				}	
+		}
+	}
+}();
+
+
+// global onload
+onload = function () {
+   // i3D.init(container, path, focalLength, globalZoom, fontSize, onmouseover_border, hyperlink_border,[image, x,y,z]
+	i3D.init("screen", "./journey_images/", 300, 1, 12, '#666 solid 1px', '#fff dotted 1px', [
+		['E1.jpg', 900,0,500],
+		['E2.jpg', -900,0,500],
+		['E3.jpg', 900,0,1000],
+		['E4.jpg', -900,0,1000],
+		['A1.jpg', 900,0,1500],
+		['A2.jpg', -900,0,1500],
+		['A3.jpg', 900,0,2000],
+		['A4.jpg', -900,0,2000],
+		['F1.jpg', 900,0,2500],
+		['F2.jpg', -900,0,2500],
+		['O1.jpg', 900,0,3000],
+		['O2.jpg', -900,0,3000],
+		['O3.jpg', 900,0,3500],
+		['O4.jpg', -900,0,3500],
+		['P1.jpg', 900,0,4000],
+		['P2.jpg', -900,0,4000]
+	]);
+}
+</script>
+</head>
+
+<body>
+<div id="screen">
+</div>
+</body>
+
+</html>

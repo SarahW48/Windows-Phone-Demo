@@ -1,0 +1,98 @@
+body {
+	margin:0px 0px; 
+	padding:0px;
+	text-align:center;
+	background-color:white;
+	font-family: Arial, Arial Bold;
+	overflow:hidden ;
+	}
+	
+#Content {
+	width:90%;
+	height:100%;
+	margin:0px auto;
+	text-align:left;
+	padding:0;
+	position:absolute;
+	top:0%;
+	left:5%;
+	}
+
+.level {
+	width:90%;
+	height:100%;
+	margin:0px auto;
+	text-align:left;
+	position:relative;
+	top:0px;
+	background-color:white;
+	}
+#caption{
+	font-size:300%;	
+	color:white;
+
+}
+#pictureArea{
+	position:relative;
+	top:12%;
+
+}
+#title{
+	width:100%;
+	height:15%;
+	}
+
+.choiceA{
+	float:left;	
+	width:10%;
+	top:20px;
+	opacity:0.5;
+	}
+
+.choiceB{
+	float:right;
+	width:10%;
+	top:20px; 
+
+	opacity:0.5;
+	}
+.choiceA:hover{
+	opacity:1;
+}
+.choiceB:hover{
+	opacity:1;
+}
+
+img.choiceImg{
+	width:100%;	
+	top:20px; 
+
+}
+
+img.choiceImg:hover{
+
+}
+
+
+/* CSS for IE versions 8 and below through conditional comments */
+.baseBlock{
+    position:relative;
+    z-index:3;
+}
+
+.baseBlockIn{
+    position:relative;
+    z-index:4;/* z-index for content must be bigger then z-index for shadow */
+}
+.box {
+  -moz-border-radius: 0px; /* Firefox */
+  -webkit-border-radius: 0px; /* Safari and Chrome */
+  border-radius: 0px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+
+  -moz-box-shadow: 5px 5px 10px #000; /* Firefox */
+  -webkit-box-shadow: 5px 5px 10px #000; /* Safari and Chrome */
+  box-shadow: 5px 5px 10px #000; /* Opera 10.5+, future browsers and IE6+ using IE-CSS3 */
+
+  behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */
+}
+

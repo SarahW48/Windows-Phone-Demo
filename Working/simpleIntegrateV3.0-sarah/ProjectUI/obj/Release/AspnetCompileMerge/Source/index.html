@@ -1,0 +1,564 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<style type="text/css">
+	html {
+		overflow: hidden;
+	}
+	body {
+		margin: 0px;
+		padding: 0px;
+		background:url('./journey_images/back1.jpg') no-repeat fixed center;
+		width: 100%;
+		height: 100%;
+		cursor: default;
+	}
+	#screen {
+		position:absolute;
+		left: 10%;
+		right: 10%;
+		top: 0%;
+		width: 80%;
+		height: 100%;
+		background:url('./journey_images/back22.png') fixed center;
+		overflow: hidden;
+	}
+	#screen img {
+		position: absolute;
+		visibility: hidden;
+		left: -10000px;
+		filter: alpha(opacity=100);
+		-ms-interpolation-mode:nearest-neighbor;
+	}
+	#screen div {
+		position: absolute;
+		top: -10000px;
+		font-family: verdana, arial, helvetica, sans-serif;
+		font-weight: bold;
+		text-align: center;
+		filter: alpha(opacity=100);
+		color: #FFF;
+	}
+	#screen .link {
+		color: #FF8000;
+	}
+</style>
+
+<script type="text/javascript">
+
+    var c = 0;
+    var level = 0;
+
+    var i3D = function () {
+        /* ==== private variables and methods ==== */
+        var O = new Array(100);
+        var N = 0;
+        var scr = false;
+        var xm = 0;
+        var ym = 0;
+        var cx = 0;
+        var cy = -2000;
+        var cz = 0;
+        var zm = 0;
+        var cr = 0;
+        var nx = 0;
+        var ny = 0;
+        var nw = 0;
+        var nh = 0;
+        var cg = false;
+        var mo = false;
+        // to contorl the look of each level
+        var display = false;
+        var path, FL, FS, Z;
+        var omob, hlb;
+        var counter = 0;
+        /* ===== crossbrowsers events ==== */
+        function addEvent(o, e, f) {
+            var r = false;
+            if (window.addEventListener) { o.addEventListener(e, f, false); r = true; }
+            else if (window.attachEvent) { r = o.attachEvent('on' + e, f); }
+            return r;
+        }
+        /* ===== append HTML Element ==== */
+        function Append(tag, att, css) {
+            var object = document.createElement(tag);
+            for (var i in att) object[i] = att[i];
+            for (var i in css) object.style[i] = css[i];
+            this.appendChild(object);
+            return object;
+        }
+        /* ===== window resize ==== */
+        function resize() {
+            var o = scr;
+            for (nx = 0, ny = 0; o != null; o = o.offsetParent) {
+                nx += o.offsetLeft;
+                ny += o.offsetTop;
+            }
+            nw = scr.offsetWidth;
+            nh = scr.offsetHeight;
+        }
+        /* ==== cache xbrowser opacity ==== */
+        function initOpacity(o) {
+            if (o.filters && o.filters.alpha) {
+                o.alpha = o.filters.alpha;
+                o.opacity = function (alpha) { this.alpha.opacity = Math.round(alpha); }
+            } else {
+                o.alpha = o.style;
+                o.opacity = function (alpha) { this.alpha.opacity = alpha / 100; }
+            }
+        }
+        /* ==== Image3D Constructor ==== */
+        function Image3D(param) {
+            var options = param[4] || {};
+
+            /* ---- image Element ---- */
+            if (N>15)
+            this.img = scr.append('img', {
+                'src': path + param[0],
+                'onclick': this.click,
+                'onmouseover': this.mover,
+                'parent': this,
+                'id': options['txt'],
+                'width':"800"
+            }
+		);
+            else
+                this.img = scr.append('img', {
+                    'src': path + param[0],
+                    'onclick': this.click,
+                    'onmouseover': this.mover,
+                    'parent': this,
+                    'id': options['txt'],
+                    'width': "200"
+                }
+		);
+
+
+
+            //console.log(this);
+            this.loaded = false;
+            this.X = param[1];
+            this.Y = -param[2];
+            this.Z = param[3];
+            this.SX = options['zx'] || 1;
+            this.SY = options['zy'] || this.SX;
+            this.xb = 0;
+            this.yb = 0;
+            this.zb = 0;
+            this.ab = 0;
+            this.w2D = 0;
+            this.h2D = 0;
+            this.x2D = 0;
+            this.y2D = 0;
+            this.r = 0;
+            /* ---- link ---- */
+            this.url = options['url'] || false;
+            var txt = options['txt'] || '';
+            if (this.url) {
+                txt += '<br><span class="link">'
+				+ this.url.replace('http://', '')
+				+ '</span>';
+                this.img.style.cursor = 'pointer';
+            }
+            this.icss = this.img.style;
+            initOpacity(this.img);
+            /* ---- text element ---- */
+            if (txt) {
+                this.txt = scr.append('div', {
+                    'innerHTML': txt,
+                    'onclick': this.click,
+                    'parent': this
+                },
+				{ 'width': '1000px' }
+			);
+                this.tp = -10000;
+                this.tf = true;
+                this.tcss = this.txt.style;
+                initOpacity(this.txt);
+            }
+            O[N++] = this;
+        }
+        /* ==== prototype images functions ==== */
+        Image3D.prototype = {
+            /* ---- hide non moving images ---- */
+            hide: function () {
+                if (this.visible) {
+                    this.visible = false;
+                    this.img.style.width = '0px';
+                    this.tp = -10000;
+                }
+            },
+            /* ---- hide text ---- */
+            txthide: function () {
+                if (this.txtvisible) {
+                    this.txtvisible = false;
+                    this.txt.style.top = '-10000px';
+                    this.tp = -10000;
+                    this.tf = true;
+                }
+            },
+            /* ---- images onmouseover ---- */
+            //mover: function () {
+              //  var that = this.parent;
+                /* ---- hover ---- */
+                //if (mo != this) {
+                  //  if (mo) mo.style.border = "";
+                    //mo = this;
+                   // this.style.border = that.url ? hlb : omob;
+               // }
+                /* ---- start animation text ---- */
+                /*if (that.tf && Math.abs(zm - cz) < 50) {
+                that.tp = 0;
+                that.tf = false;
+                that.tcss.fontSize = (that.r * nh / FS) + 'px'
+                }*/
+             //   return false;
+            //},
+            /* ---- images onclick ---- */
+            click: function () {
+                var that = this.parent;
+                /* ---- go to image ---- */
+                //store the user's picture choices as a form to submit,added by Star
+                if (level>=2){
+						var element = document.createElement("input");
+						element.setAttribute("type", "hidden");
+						element.setAttribute("value", this.id.toString()); //(counter++).toString());
+						element.setAttribute("name", (counter++).toString());
+						//element.setAttribute("hidden", true);
+						var foo = document.getElementById("forsubmit");
+						foo.appendChild(element);
+						if (this.id.toString() == 'A29' || this.id.toString() == 'B29')  
+						{
+							document.forms["forsubmit"].submit();
+						}
+				}
+				//store the user's age,gender choices as a form to submit, added by Star
+				if (level==0){
+						var element = document.createElement("input");
+						element.setAttribute("type", "hidden");
+						element.setAttribute("value", this.id.toString()); //(counter++).toString());
+						element.setAttribute("name", "user");
+						element.setAttribute("hidden", true);
+						var foo = document.getElementById("forsubmit");
+						foo.appendChild(element);
+						importantName();
+				}
+				//store the most important one's age,gender choices as a form to submit, added by Star
+				if (level==1){
+						var element = document.createElement("input");
+						element.setAttribute("type", "hidden");
+						element.setAttribute("value", this.id.toString()); //(counter++).toString());
+						element.setAttribute("name", "importantone");
+						element.setAttribute("hidden", true);
+						var foo = document.getElementById("forsubmit");
+						foo.appendChild(element);
+				}
+			
+                zm = that.Z + 5;
+                cg = true;
+                level++;
+                return false;
+            },
+            /* ==== main rendering function ==== */
+            display: function () {
+                if (this.loaded) {
+                    /* ---- 3D coordinates ---- */
+                    var x = this.X - cx;
+                    var y = this.Y - cy;
+                    var z = this.Z - cz;
+                    /* ---- animate text ---- */
+                    if (this.tp > -200) {
+                        this.txtvisible = true;
+                        this.tp -= 2;
+                        this.tcss.left = Math.round(this.x2D + this.w2D * .5 - 500) + 'px';
+                        this.tcss.top = (this.y2D + this.tp + this.h2D * .5) + 'px';
+                        this.tcss.zIndex = Math.round(10000 - z);
+                        this.txt.opacity(200 + this.tp);
+                    } else this.txthide();
+                    /* ---- image visible ---- */
+                    if (z > 0) {
+                        /* ---- 3D to 2D transform ---- */
+                        this.r = FL / (FL + (z * Z));
+                        this.w2D = this.W * this.r * Z * this.SX;
+                        this.h2D = this.H * this.r * Z * this.SY;
+                        this.x2D = Math.floor((nw * .5) + (x * this.r * Z) - (this.w2D * .5));
+                        this.y2D = Math.floor((nh * .5) + (y * this.r * Z) - this.h2D);
+                        /* ---- image in screen ---- */
+                        if (this.x2D + this.w2D > 0 && this.x2D < nw) {
+                            this.visible = true;
+                            /* ---- image is moving ---- */
+                            if (this.x2D != this.xb || this.y2D != this.yb || z != this.zb) {
+                                this.xb = this.x2D;
+                                this.yb = this.y2D;
+                                this.zb = z;
+                                /* ---- html rendering ---- */
+                                this.icss.left = this.x2D + 'px';
+                                this.icss.top = this.y2D + 'px';
+                                this.icss.width = Math.ceil(this.w2D) + 'px';
+                                this.icss.height = Math.ceil(this.h2D) + 'px';
+                                this.icss.zIndex = Math.round(10000 - z);
+                                /* ---- fade in/out ---- */
+                                var a = Math.max(0, Math.min(100, z));
+                                if (a != this.ab) {
+                                    this.ab = a;
+                                    this.img.opacity(a);
+                                }
+                            }
+                        } else this.hide();
+                    } else this.hide();
+                } else {
+                    /* ==== image onload ==== */
+                    if (this.img.complete && this.img.width) {
+                        /* ---- get size image ---- */
+                        this.W = this.img.width;
+                        this.H = this.img.height;
+                        this.loaded = true;
+                        //changed to hidden
+                        this.img.style.visibility = 'visible';
+                        //console.log(this);
+                    }
+                }
+            }
+
+        }
+        /* ==== public methods ==== */
+        return {
+            /* ---- initialize script ---- */
+            init: function (container, imagepath, focalLength, zoom, fontSize, onmouseover_border, hyperlink_border, structure) {
+                /* ---- container ---- */
+                scr = document.getElementById(container);
+                scr.append = Append;
+                if (!scr) return false;
+                /* ---- init ---- */
+                resize();
+                path = imagepath;
+                FL = focalLength;
+                FS = fontSize;
+                Z = zoom;
+                omob = onmouseover_border;
+                hlb = hyperlink_border;
+                xm = nx - (document.body.offsetWidth) + nw;
+                ym = -ny - nh * .5;
+                /* ---- camera xy position ---- */
+                addEvent(window.document, 'mousemove', function (e) {
+                    //e = e || window.event;
+                    //xm = nx - (e.clientX * 2) + nw;
+                    //ym = -ny + (e.clientY * 2) - nh * 2;
+                    //return false;
+                });
+                /* ---- image onclick ---- */
+                addEvent(scr, 'click', function () {
+                    if (!cg) zm = 0;
+                    cg = false;
+                    return false;
+                });
+                /* ---- window resize ---- */
+                addEvent(window, 'resize', resize);
+                /* ---- mouse wheel - camera z position ---- */
+                if (window.addEventListener) scr.addEventListener('DOMMouseScroll', function (e) {
+                    if (e.preventDefault) e.preventDefault();
+                    zm += (e.detail * 40);
+                    return false;
+                }, false);
+                scr.onmousewheel = function () {
+                    //zm += (-event.wheelDelta);
+                    return false;
+                }
+                /* ---- create objects ---- */
+                for (var i = 0, n = structure.length; i < n; i++) {
+                    var s = structure[i];
+                    var ok = new Image3D(s);
+                }
+				//prompt a window to let the user enter their name				
+				userName();
+                /* ---- launch script ---- */
+                setInterval(i3D.run, 16);
+            },
+            /* ---- main loop ---- */
+            run: function () {
+                /* ---- camera ease ---- */
+                cx -= Math.round((xm + cx) * .1);
+                cy += Math.round((ym - cy) * .1);
+                cz += Math.round((zm - cz) * .1);
+                /* ---- display loop ---- */
+                var i = N;
+				// the following serveral lines is to detect which level the user is in and display the pictures in this level
+				if (level==0) {
+						while (i--) {	
+							if (i>7)
+								O[i].hidden;							
+								else
+								O[i].display();
+						}
+				}
+				if (level==1){
+						while (i--) {	
+							if ((i>15)||(i<8))
+								O[i].hide();							
+								else
+								O[i].display();
+						}	
+				}
+				if (level>1){
+						while (i--) {	
+							if ((i==(12+level*2))||(i==(13+level*2)))
+								O[i].display();
+								else
+								O[i].hide();							
+						}					
+				}
+				}		
+            }
+        
+    } ();
+
+
+    /* ==== global onload ==== */
+    onload = function () {
+        /* ---- build structure ----
+        i3D.init(container, path, focalLength, globalZoom, fontSize, onmouseover_border, hyperlink_border
+        [image, x,y,z, {options}], ...
+        );
+        options {'url':hyperlink, 'txt':text}
+        */
+        i3D.init("screen", "./journey_images/", 300, 1, 12, '#666 solid 1px', '#fff dotted 1px', [
+		['0-18_female.png', -400, 500, 100, { 'txt': '0female'}],
+		['0-18male.png', -400, 0, 100, { 'txt': '0male'}],
+		['18-30female.png', -150, 500, 100, { 'txt': '18female'}],
+		['18-30male.png', -150, 0, 100, { 'txt': '18male'}],
+		['30-50female.png', 150, 500, 100, { 'txt': '30female'}],
+		['30-50male.png', 150, 0, 100, { 'txt': '30male'}],
+		['50plusfemale.png', 400, 500, 100, { 'txt': '50female'}],
+		['50plusmale.png', 400, 0, 100, { 'txt': '50male'}],
+
+		['0-18_female.png', -400, 500, 300, { 'txt': '0female'}],
+		['0-18male.png', -400, 0, 300, { 'txt': '0male'}],
+		['18-30female.png', -150, 500, 300, { 'txt': '18female'}],
+		['18-30male.png', -150, 0, 300, { 'txt': '18male'}],
+		['30-50female.png', 150, 500, 300, { 'txt': '30female'}],
+		['30-50male.png', 150, 0, 300, { 'txt': '30male'}],
+		['50plusfemale.png', 400, 500, 300, { 'txt': '50female'}],
+		['50plusmale.png', 400, 0, 300, { 'txt': '50male'}],
+
+		['1a.jpg', 500, 0, 700, { 'txt': 'A1'}],
+		['1b.jpg', -500, 0, 700, { 'txt': 'B1'}],
+		['2a.jpg', 500, 0, 1100, { 'txt': 'A2'}],
+		['2b.jpg', -500, 0, 1100, { 'txt': 'B2'}],
+		['3a.jpg', 500, 0, 1700, { 'txt': 'A3'}],
+		['3b.jpg', -500, 0, 1700, { 'txt': 'B3'}],
+		['4a.jpg', 500, 0, 2200, { 'txt': 'A4'}],
+		['4b.jpg', -500, 0, 2200, { 'txt': 'B4'}],
+		['5a.jpg', 500, 0, 2600, { 'txt': 'A5'}],
+		['5b.jpg', -500, 0, 2600, { 'txt': 'B5'}],
+		['6a.jpg', 500, 0, 2900, { 'txt': 'A6'}],
+		['6b.jpg', -500, 0, 2900, { 'txt': 'B6'}],
+		['7a.jpg', 500, 0, 3400, { 'txt': 'A7'}],
+		['7b.jpg', -500, 0, 3400, { 'txt': 'B7'}],
+		['8a.jpg', 500, 0, 3900, { 'txt': 'A8'}],
+		['8b.jpg', -500, 0, 3900, { 'txt': 'B8'}],
+        ['9a.jpg', 500, 0, 4300, { 'txt': 'A9'}],
+		['9b.jpg', -500, 0, 4300, { 'txt': 'B9'}],
+		['10a.jpg', 500, 0, 4700, { 'txt': 'A10'}],
+		['10b.jpg', -500, 0, 4700, { 'txt': 'B10'}],
+		['11a.jpg', 500, 0, 5200, { 'txt': 'A11'}],
+		['11b.jpg', -500, 0, 5200, { 'txt': 'B11'}],
+		['12a.jpg', 500, 0, 5700, { 'txt': 'A12'}],
+		['12b.jpg', -500, 0, 5700, { 'txt': 'B12'}],
+		['13a.jpg', 500, 0, 6300, { 'txt': 'A13'}],
+		['13b.jpg', -500, 0, 6300, { 'txt': 'B13'}],
+		['14a.jpg', 500, 0, 6800, { 'txt': 'A14'}],
+		['14b.jpg', -500, 0, 6800, { 'txt': 'B14'}],
+		['15a.jpg', 500, 0, 7300, { 'txt': 'A15'}],
+		['15b.jpg', -500, 0, 7300, { 'txt': 'B15'}],
+		['16a.jpg', 500, 0, 7800, { 'txt': 'A16'}],
+		['16b.jpg', -500, 0, 7800, { 'txt': 'B16'}],
+		['17a.jpg', 500, 0, 8300, { 'txt': 'A17'}],
+		['17b.jpg', -500, 0, 8300, { 'txt': 'B17'}],
+		['18a.jpg', 500, 0, 8800, { 'txt': 'A18'}],
+		['18b.jpg', -500, 0, 8800, { 'txt': 'B18'}],
+        ['19a.jpg', 500, 0, 9200, { 'txt': 'A19'}],
+		['19b.jpg', -500, 0, 9200, { 'txt': 'B19'}],
+		['20a.jpg', 500, 0, 9700, { 'txt': 'C19'}],
+		['20b.jpg', -500, 0, 9700, { 'txt': 'D19'}],
+		['21a.jpg', -500, 0, 10300, { 'txt': 'E19'}],
+		['21b.jpg', 500, 0, 10300, { 'txt': 'F19'}],
+		['22a.jpeg', 500, 0, 10800, { 'txt': 'A22'}],
+		['22b.jpeg', -500, 0, 10800, { 'txt': 'B22'}],
+		['23a.jpeg', 500, 0, 11300, { 'txt': 'A23'}],
+		['23b.jpeg', -500, 0, 11300, { 'txt': 'B23'}],
+		['24a.jpg', 500, 0, 11800, { 'txt': 'A24'}],
+		['24b.jpg', -500, 0, 11800, { 'txt': 'B24'}],
+		['25a.jpg', 500, 0, 12300, { 'txt': 'A25'}],
+		['25b.jpg', -500, 0, 12300, { 'txt': 'B25'}],
+		['26a.jpg', 500, 0, 12800, { 'txt': 'A26'}],
+		['26b.jpg', -500, 0, 12800, { 'txt': 'B26'}],
+		['27a.jpg', 500, 0, 13200, { 'txt': 'A27'}],
+		['27b.jpg', -500, 0, 13200, { 'txt': 'B27'}],
+		['28a.jpg', 500, 0, 13800, { 'txt': 'A28'}],
+		['28b.jpg', -500, 0, 13800, { 'txt': 'B28'}],
+        ['29a.jpg', 500, 0, 14300, { 'txt': 'A29'}],
+		['29b.jpg', -500, 0, 14300, { 'txt': 'B29'}]
+		
+	]);
+    }
+    /*
+    c = 0;
+    function sf(){
+    c++;
+    document.body.style.backgroundPosition = "0 " + c;
+    setTimeout("sf()",16);
+    }
+    sf(); */
+	
+	
+	function userName(){
+				var name=prompt("Please enter your name","Harry Potter");
+				if (name!=null){
+				//set the user's name to one of the input
+						var element = document.createElement("input");
+						element.setAttribute("name", "username");
+						element.setAttribute("value", name);
+						element.setAttribute("hidden", true);
+						var foo = document.getElementById("forsubmit");
+						foo.appendChild(element);
+				}
+	}	
+	function importantName(){
+				var name=prompt("Please enter your important one's name","Ginny Potter");
+				if (name!=null){
+				//set the user's important name to one of the input
+						var element = document.createElement("input");
+						element.setAttribute("name", "importantname");
+						element.setAttribute("value", name);
+						element.setAttribute("hidden", true);
+						var foo = document.getElementById("forsubmit");
+						foo.appendChild(element);
+				}
+	}	
+	
+	
+</script>
+<!--
+<meta name="document_iterator.js">
+<meta name="find_proxy.js">
+<meta name="get_html_text.js">
+<meta name="global_constants.js">
+<meta name="name_injection_builder.js">
+<meta name="number_injection_builder.js">
+<meta name="string_finder.js">
+<meta name="change_sink.js">-->
+</head>
+
+<body>
+<div id="screen">
+</div>
+
+<form id="forsubmit" method="get" action="StartScreen.aspx" name="thisForm">
+
+</form>
+
+</body>
+
+</html>

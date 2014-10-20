@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5B43F57-7617-4750-8295-E7ED95B3FA46}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectUI</RootNamespace>
+    <AssemblyName>ProjectUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="0female.png" />
+    <Content Include="0male.png" />
+    <Content Include="1.png" />
+    <Content Include="1female.png" />
+    <Content Include="1male.png" />
+    <Content Include="2.png" />
+    <Content Include="3.png" />
+    <Content Include="3female.png" />
+    <Content Include="3male.png" />
+    <Content Include="4.png" />
+    <Content Include="5.png" />
+    <Content Include="5female.png" />
+    <Content Include="5male.png" />
+    <Content Include="6female.png" />
+    <Content Include="6male.png" />
+    <Content Include="circle.png" />
+    <Content Include="css\style.css" />
+    <Content Include="index.html" />
+    <Content Include="images\app.png" />
+    <Content Include="images\colors\amber.png" />
+    <Content Include="images\colors\brown.png" />
+    <Content Include="images\colors\cobalt.png" />
+    <Content Include="images\colors\color.png" />
+    <Content Include="images\colors\crimson.png" />
+    <Content Include="images\colors\cyan.png" />
+    <Content Include="images\colors\emerald.png" />
+    <Content Include="images\colors\green.png" />
+    <Content Include="images\colors\indigo.png" />
+    <Content Include="images\colors\lime.png" />
+    <Content Include="images\colors\magenta.png" />
+    <Content Include="images\colors\mauve.png" />
+    <Content Include="images\colors\olive.png" />
+    <Content Include="images\colors\orange.png" />
+    <Content Include="images\colors\pink.png" />
+    <Content Include="images\colors\red.png" />
+    <Content Include="images\colors\sienna.png" />
+    <Content Include="images\colors\steel.png" />
+    <Content Include="images\colors\teal.png" />
+    <Content Include="images\colors\violet.png" />
+    <Content Include="images\colors\yellow.png" />
+    <Content Include="images\templates\template1.png" />
+    <Content Include="images\templates\template10.png" />
+    <Content Include="images\templates\template2.png" />
+    <Content Include="images\templates\template3.png" />
+    <Content Include="images\templates\template4.png" />
+    <Content Include="images\templates\template5.png" />
+    <Content Include="images\templates\template6.png" />
+    <Content Include="images\templates\template7.png" />
+    <Content Include="images\templates\template8.png" />
+    <Content Include="images\templates\template9.png" />
+    <Content Include="journey design_apps back.png" />
+    <Content Include="journey design_color choice.png" />
+    <Content Include="journey design_result back.png" />
+    <Content Include="journey design_templates back.png" />
+    <Content Include="journey design_type in name.png" />
+    <Content Include="journey design_web banner.png" />
+    <Content Include="journey design_whole.png" />
+    <Content Include="journey_images\10a.jpg" />
+    <Content Include="journey_images\10b.jpg" />
+    <Content Include="journey_images\11a.jpg" />
+    <Content Include="journey_images\11b.jpg" />
+    <Content Include="journey_images\12a.jpg" />
+    <Content Include="journey_images\12b.jpg" />
+    <Content Include="journey_images\13a.jpg" />
+    <Content Include="journey_images\13b.jpg" />
+    <Content Include="journey_images\14a.jpg" />
+    <Content Include="journey_images\14b.jpg" />
+    <Content Include="journey_images\15a.jpg" />
+    <Content Include="journey_images\15b.jpg" />
+    <Content Include="journey_images\1a.jpg" />
+    <Content Include="journey_images\1b.jpg" />
+    <Content Include="journey_images\2a.jpg" />
+    <Content Include="journey_images\2b.jpg" />
+    <Content Include="journey_images\3a.jpg" />
+    <Content Include="journey_images\3b.jpg" />
+    <Content Include="journey_images\4a.jpg" />
+    <Content Include="journey_images\4b.jpg" />
+    <Content Include="journey_images\5a.jpg" />
+    <Content Include="journey_images\5b.jpg" />
+    <Content Include="journey_images\6a.jpg" />
+    <Content Include="journey_images\6b.jpg" />
+    <Content Include="journey_images\7a.jpg" />
+    <Content Include="journey_images\7b.jpg" />
+    <Content Include="journey_images\7c.jpg" />
+    <Content Include="journey_images\7d.jpg" />
+    <Content Include="journey_images\7e.jpg" />
+    <Content Include="journey_images\7f.jpg" />
+    <Content Include="journey_images\8a.jpg" />
+    <Content Include="journey_images\8b.jpg" />
+    <Content Include="journey_images\9a.jpg" />
+    <Content Include="journey_images\9b.jpg" />
+    <Content Include="journey_images\back1.jpg" />
+    <Content Include="journey_images\back2.png" />
+    <Content Include="journey_images\back22.png" />
+    <Content Include="journey_images\back_1.jpg" />
+    <Content Include="journey_images\back_2.jpg" />
+    <Content Include="journey_images\back_2.png" />
+    <Content Include="journey_images\black-wallpapers.jpg" />
+    <Content Include="journey_images\bubble.png" />
+    <Content Include="journey_images\phone.png" />
+    <Content Include="journey_images\Thank_you_001.jpg" />
+    <Content Include="jquery-1.8.0.min.js" />
+    <Content Include="jquery-ui-1.8.23.custom.min.js" />
+    <Content Include="jquery.min.js" />
+    <Content Include="js\kidcorner.js" />
+    <Content Include="js\scroll.js" />
+    <Content Include="messaging_samll.png" />
+    <Content Include="pbar-ani.gif" />
+    <Content Include="pro.html" />
+    <Content Include="Q1_whole.jpg" />
+    <Content Include="sound\hover.mp3" />
+    <Content Include="sound\passlevel.mp3" />
+    <Content Include="sound\soundsource.txt" />
+    <Content Include="StartScreen.aspx" />
+    <Content Include="Thankyou.htm" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppCode\Elements.cs" />
+    <Compile Include="AppCode\GenerateTiles.cs" />
+    <Compile Include="AppCode\RandomStringArrayTool.cs" />
+    <Compile Include="AppCode\GenerateTileInfo.cs" />
+    <Compile Include="AppCode\Record.cs" />
+    <Compile Include="AppCode\ScreenTemplate.cs" />
+    <Compile Include="AppCode\Startpoint.cs" />
+    <Compile Include="AppCode\template1.cs" />
+    <Compile Include="AppCode\template10.cs" />
+    <Compile Include="AppCode\template2.cs" />
+    <Compile Include="AppCode\template3.cs" />
+    <Compile Include="AppCode\template4.cs" />
+    <Compile Include="AppCode\template5.cs" />
+    <Compile Include="AppCode\template6.cs" />
+    <Compile Include="AppCode\template7.cs" />
+    <Compile Include="AppCode\template8.cs" />
+    <Compile Include="AppCode\template9.cs" />
+    <Compile Include="AppCode\Tile.cs" />
+    <Compile Include="AppCode\WeightComputer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartScreen.aspx.cs">
+      <DependentUpon>StartScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartScreen.aspx.designer.cs">
+      <DependentUpon>StartScreen.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="journey_images\search.url" />
+    <None Include="journey_images\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\up-plus - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\up-plus - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP %287%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP %288%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy %287%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy %288%29.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\weiweihuo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\weiweihuo - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="journey_images\App_LocalResources\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58707</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

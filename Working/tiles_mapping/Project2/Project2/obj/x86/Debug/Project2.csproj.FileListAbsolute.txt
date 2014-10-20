@@ -1,0 +1,7 @@
+c:\users\nmao\documents\visual studio 2010\Projects\Project2\Project2\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\nmao\documents\visual studio 2010\Projects\Project2\Project2\bin\Debug\Project2.exe
+c:\users\nmao\documents\visual studio 2010\Projects\Project2\Project2\bin\Debug\Project2.pdb
+c:\users\nmao\documents\visual studio 2010\Projects\Project2\Project2\obj\x86\Debug\Project2.exe
+c:\users\nmao\documents\visual studio 2010\Projects\Project2\Project2\obj\x86\Debug\Project2.pdb
+\\RANDON\etc\projects\current\up-plus\Code\Working\tiles_mapping\Project2\Project2\obj\x86\Debug\Project2.exe
+\\RANDON\etc\projects\current\up-plus\Code\Working\tiles_mapping\Project2\Project2\obj\x86\Debug\Project2.pdb

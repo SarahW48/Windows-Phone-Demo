@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5B43F57-7617-4750-8295-E7ED95B3FA46}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectUI</RootNamespace>
+    <AssemblyName>ProjectUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Amazon Kindle.png" />
+    <Content Include="Bible.png" />
+    <Content Include="images\tiles\book_reference\0.png" />
+    <Content Include="images\tiles\book_reference\1.png" />
+    <Content Include="images\tiles\book_reference\10.png" />
+    <Content Include="images\tiles\book_reference\11.png" />
+    <Content Include="images\tiles\book_reference\12.png" />
+    <Content Include="images\tiles\book_reference\13.png" />
+    <Content Include="images\tiles\book_reference\14.png" />
+    <Content Include="images\tiles\book_reference\15.png" />
+    <Content Include="images\tiles\book_reference\16.png" />
+    <Content Include="images\tiles\book_reference\17.png" />
+    <Content Include="images\tiles\book_reference\18.png" />
+    <Content Include="images\tiles\book_reference\19.png" />
+    <Content Include="images\tiles\book_reference\2.png" />
+    <Content Include="images\tiles\book_reference\20.png" />
+    <Content Include="images\tiles\book_reference\21.png" />
+    <Content Include="images\tiles\book_reference\3.png" />
+    <Content Include="images\tiles\book_reference\4.png" />
+    <Content Include="images\tiles\book_reference\5.png" />
+    <Content Include="images\tiles\book_reference\6.png" />
+    <Content Include="images\tiles\book_reference\7.png" />
+    <Content Include="images\tiles\book_reference\8.png" />
+    <Content Include="images\tiles\book_reference\9.png" />
+    <Content Include="images\tiles\build-in\alarm_S.png" />
+    <Content Include="images\tiles\build-in\calculator_S.png" />
+    <Content Include="images\tiles\build-in\calendar_L.png" />
+    <Content Include="images\tiles\build-in\calendar_M.png" />
+    <Content Include="images\tiles\build-in\calendar_S.png" />
+    <Content Include="images\tiles\build-in\call_L.png" />
+    <Content Include="images\tiles\build-in\call_M.png" />
+    <Content Include="images\tiles\build-in\call_S.png" />
+    <Content Include="images\tiles\build-in\camera_S.png" />
+    <Content Include="images\tiles\build-in\ie_L.png" />
+    <Content Include="images\tiles\build-in\ie_M.png" />
+    <Content Include="images\tiles\build-in\ie_S.png" />
+    <Content Include="images\tiles\build-in\mail_L.png" />
+    <Content Include="images\tiles\build-in\mail_M.png" />
+    <Content Include="images\tiles\build-in\mail_S.png" />
+    <Content Include="images\tiles\build-in\map_S.png" />
+    <Content Include="images\tiles\build-in\message_M.png" />
+    <Content Include="images\tiles\build-in\message_S.png" />
+    <Content Include="images\tiles\build-in\messaging_samll.png" />
+    <Content Include="images\tiles\build-in\music_L.png" />
+    <Content Include="images\tiles\build-in\music_M.png" />
+    <Content Include="images\tiles\build-in\music_S.png" />
+    <Content Include="images\tiles\build-in\setting_S.png" />
+    <Content Include="images\tiles\business\0.png" />
+    <Content Include="images\tiles\business\1.png" />
+    <Content Include="images\tiles\business\10.png" />
+    <Content Include="images\tiles\business\11.png" />
+    <Content Include="images\tiles\business\12.png" />
+    <Content Include="images\tiles\business\13.png" />
+    <Content Include="images\tiles\business\14.png" />
+    <Content Include="images\tiles\business\15.png" />
+    <Content Include="images\tiles\business\16.png" />
+    <Content Include="images\tiles\business\17.png" />
+    <Content Include="images\tiles\business\18.png" />
+    <Content Include="images\tiles\business\19.png" />
+    <Content Include="images\tiles\business\2.png" />
+    <Content Include="images\tiles\business\20.png" />
+    <Content Include="images\tiles\business\21.png" />
+    <Content Include="images\tiles\business\3.png" />
+    <Content Include="images\tiles\business\4.png" />
+    <Content Include="images\tiles\business\5.png" />
+    <Content Include="images\tiles\business\6.png" />
+    <Content Include="images\tiles\business\7.png" />
+    <Content Include="images\tiles\business\8.png" />
+    <Content Include="images\tiles\business\9.png" />
+    <Content Include="images\tiles\education\0.png" />
+    <Content Include="images\tiles\education\1.png" />
+    <Content Include="images\tiles\education\10.png" />
+    <Content Include="images\tiles\education\11.png" />
+    <Content Include="images\tiles\education\12.png" />
+    <Content Include="images\tiles\education\13.png" />
+    <Content Include="images\tiles\education\14.png" />
+    <Content Include="images\tiles\education\15.png" />
+    <Content Include="images\tiles\education\16.png" />
+    <Content Include="images\tiles\education\17.png" />
+    <Content Include="images\tiles\education\18.png" />
+    <Content Include="images\tiles\education\19.png" />
+    <Content Include="images\tiles\education\2.png" />
+    <Content Include="images\tiles\education\20.png" />
+    <Content Include="images\tiles\education\21.png" />
+    <Content Include="images\tiles\education\3.png" />
+    <Content Include="images\tiles\education\4.png" />
+    <Content Include="images\tiles\education\5.png" />
+    <Content Include="images\tiles\education\6.png" />
+    <Content Include="images\tiles\education\7.png" />
+    <Content Include="images\tiles\education\8.png" />
+    <Content Include="images\tiles\education\9.png" />
+    <Content Include="images\tiles\entertainment\0.png" />
+    <Content Include="images\tiles\entertainment\1.png" />
+    <Content Include="images\tiles\entertainment\10.png" />
+    <Content Include="images\tiles\entertainment\11.png" />
+    <Content Include="images\tiles\entertainment\12.png" />
+    <Content Include="images\tiles\entertainment\13.png" />
+    <Content Include="images\tiles\entertainment\14.png" />
+    <Content Include="images\tiles\entertainment\15.png" />
+    <Content Include="images\tiles\entertainment\16.png" />
+    <Content Include="images\tiles\entertainment\17.png" />
+    <Content Include="images\tiles\entertainment\18.png" />
+    <Content Include="images\tiles\entertainment\19.png" />
+    <Content Include="images\tiles\entertainment\2.png" />
+    <Content Include="images\tiles\entertainment\20.png" />
+    <Content Include="images\tiles\entertainment\21.png" />
+    <Content Include="images\tiles\entertainment\3.png" />
+    <Content Include="images\tiles\entertainment\4.png" />
+    <Content Include="images\tiles\entertainment\5.png" />
+    <Content Include="images\tiles\entertainment\6.png" />
+    <Content Include="images\tiles\entertainment\7.png" />
+    <Content Include="images\tiles\entertainment\8.png" />
+    <Content Include="images\tiles\entertainment\9.png" />
+    <Content Include="images\tiles\government_politics\0.png" />
+    <Content Include="images\tiles\government_politics\1.png" />
+    <Content Include="images\tiles\government_politics\10.png" />
+    <Content Include="images\tiles\government_politics\11.png" />
+    <Content Include="images\tiles\government_politics\12.png" />
+    <Content Include="images\tiles\government_politics\13.png" />
+    <Content Include="images\tiles\government_politics\14.png" />
+    <Content Include="images\tiles\government_politics\15.png" />
+    <Content Include="images\tiles\government_politics\16.png" />
+    <Content Include="images\tiles\government_politics\17.png" />
+    <Content Include="images\tiles\government_politics\18.png" />
+    <Content Include="images\tiles\government_politics\19.png" />
+    <Content Include="images\tiles\government_politics\2.png" />
+    <Content Include="images\tiles\government_politics\20.png" />
+    <Content Include="images\tiles\government_politics\21.png" />
+    <Content Include="images\tiles\government_politics\3.png" />
+    <Content Include="images\tiles\government_politics\4.png" />
+    <Content Include="images\tiles\government_politics\5.png" />
+    <Content Include="images\tiles\government_politics\6.png" />
+    <Content Include="images\tiles\government_politics\7.png" />
+    <Content Include="images\tiles\government_politics\8.png" />
+    <Content Include="images\tiles\government_politics\9.png" />
+    <Content Include="images\tiles\health_fitness\0.png" />
+    <Content Include="images\tiles\health_fitness\1.png" />
+    <Content Include="images\tiles\health_fitness\10.png" />
+    <Content Include="images\tiles\health_fitness\11.png" />
+    <Content Include="images\tiles\health_fitness\12.png" />
+    <Content Include="images\tiles\health_fitness\13.png" />
+    <Content Include="images\tiles\health_fitness\14.png" />
+    <Content Include="images\tiles\health_fitness\15.png" />
+    <Content Include="images\tiles\health_fitness\16.png" />
+    <Content Include="images\tiles\health_fitness\17.png" />
+    <Content Include="images\tiles\health_fitness\18.png" />
+    <Content Include="images\tiles\health_fitness\19.png" />
+    <Content Include="images\tiles\health_fitness\2.png" />
+    <Content Include="images\tiles\health_fitness\20.png" />
+    <Content Include="images\tiles\health_fitness\21.png" />
+    <Content Include="images\tiles\health_fitness\3.png" />
+    <Content Include="images\tiles\health_fitness\4.png" />
+    <Content Include="images\tiles\health_fitness\5.png" />
+    <Content Include="images\tiles\health_fitness\6.png" />
+    <Content Include="images\tiles\health_fitness\7.png" />
+    <Content Include="images\tiles\health_fitness\8.png" />
+    <Content Include="images\tiles\health_fitness\9.png" />
+    <Content Include="images\tiles\kids_family\0.png" />
+    <Content Include="images\tiles\kids_family\1.png" />
+    <Content Include="images\tiles\kids_family\10.png" />
+    <Content Include="images\tiles\kids_family\11.png" />
+    <Content Include="images\tiles\kids_family\12.png" />
+    <Content Include="images\tiles\kids_family\13.png" />
+    <Content Include="images\tiles\kids_family\14.png" />
+    <Content Include="images\tiles\kids_family\15.png" />
+    <Content Include="images\tiles\kids_family\16.png" />
+    <Content Include="images\tiles\kids_family\17.png" />
+    <Content Include="images\tiles\kids_family\18.png" />
+    <Content Include="images\tiles\kids_family\19.png" />
+    <Content Include="images\tiles\kids_family\2.png" />
+    <Content Include="images\tiles\kids_family\20.png" />
+    <Content Include="images\tiles\kids_family\21.png" />
+    <Content Include="images\tiles\kids_family\3.png" />
+    <Content Include="images\tiles\kids_family\4.png" />
+    <Content Include="images\tiles\kids_family\5.png" />
+    <Content Include="images\tiles\kids_family\6.png" />
+    <Content Include="images\tiles\kids_family\7.png" />
+    <Content Include="images\tiles\kids_family\8.png" />
+    <Content Include="images\tiles\kids_family\9.png" />
+    <Content Include="images\tiles\lifestyle\0.png" />
+    <Content Include="images\tiles\lifestyle\1.png" />
+    <Content Include="images\tiles\lifestyle\10.png" />
+    <Content Include="images\tiles\lifestyle\11.png" />
+    <Content Include="images\tiles\lifestyle\12.png" />
+    <Content Include="images\tiles\lifestyle\13.png" />
+    <Content Include="images\tiles\lifestyle\14.png" />
+    <Content Include="images\tiles\lifestyle\15.png" />
+    <Content Include="images\tiles\lifestyle\16.png" />
+    <Content Include="images\tiles\lifestyle\17.png" />
+    <Content Include="images\tiles\lifestyle\18.png" />
+    <Content Include="images\tiles\lifestyle\19.png" />
+    <Content Include="images\tiles\lifestyle\2.png" />
+    <Content Include="images\tiles\lifestyle\20.png" />
+    <Content Include="images\tiles\lifestyle\21.png" />
+    <Content Include="images\tiles\lifestyle\3.png" />
+    <Content Include="images\tiles\lifestyle\4.png" />
+    <Content Include="images\tiles\lifestyle\5.png" />
+    <Content Include="images\tiles\lifestyle\6.png" />
+    <Content Include="images\tiles\lifestyle\7.png" />
+    <Content Include="images\tiles\lifestyle\8.png" />
+    <Content Include="images\tiles\lifestyle\9.png" />
+    <Content Include="images\tiles\music_video\0.png" />
+    <Content Include="images\tiles\music_video\1.png" />
+    <Content Include="images\tiles\music_video\10.png" />
+    <Content Include="images\tiles\music_video\11.png" />
+    <Content Include="images\tiles\music_video\12.png" />
+    <Content Include="images\tiles\music_video\13.png" />
+    <Content Include="images\tiles\music_video\14.png" />
+    <Content Include="images\tiles\music_video\15.png" />
+    <Content Include="images\tiles\music_video\16.png" />
+    <Content Include="images\tiles\music_video\17.png" />
+    <Content Include="images\tiles\music_video\18.png" />
+    <Content Include="images\tiles\music_video\19.png" />
+    <Content Include="images\tiles\music_video\2.png" />
+    <Content Include="images\tiles\music_video\20.png" />
+    <Content Include="images\tiles\music_video\21.png" />
+    <Content Include="images\tiles\music_video\3.png" />
+    <Content Include="images\tiles\music_video\4.png" />
+    <Content Include="images\tiles\music_video\5.png" />
+    <Content Include="images\tiles\music_video\6.png" />
+    <Content Include="images\tiles\music_video\7.png" />
+    <Content Include="images\tiles\music_video\8.png" />
+    <Content Include="images\tiles\music_video\9.png" />
+    <Content Include="images\tiles\news_weather\0.png" />
+    <Content Include="images\tiles\news_weather\1.png" />
+    <Content Include="images\tiles\news_weather\10.png" />
+    <Content Include="images\tiles\news_weather\11.png" />
+    <Content Include="images\tiles\news_weather\12.png" />
+    <Content Include="images\tiles\news_weather\13.png" />
+    <Content Include="images\tiles\news_weather\14.png" />
+    <Content Include="images\tiles\news_weather\15.png" />
+    <Content Include="images\tiles\news_weather\16.png" />
+    <Content Include="images\tiles\news_weather\17.png" />
+    <Content Include="images\tiles\news_weather\18.png" />
+    <Content Include="images\tiles\news_weather\19.png" />
+    <Content Include="images\tiles\news_weather\2.png" />
+    <Content Include="images\tiles\news_weather\20.png" />
+    <Content Include="images\tiles\news_weather\21.png" />
+    <Content Include="images\tiles\news_weather\3.png" />
+    <Content Include="images\tiles\news_weather\4.png" />
+    <Content Include="images\tiles\news_weather\5.png" />
+    <Content Include="images\tiles\news_weather\6.png" />
+    <Content Include="images\tiles\news_weather\7.png" />
+    <Content Include="images\tiles\news_weather\8.png" />
+    <Content Include="images\tiles\news_weather\9.png" />
+    <Content Include="images\tiles\personal finance\0.png" />
+    <Content Include="images\tiles\personal finance\1.png" />
+    <Content Include="images\tiles\personal finance\10.png" />
+    <Content Include="images\tiles\personal finance\11.png" />
+    <Content Include="images\tiles\personal finance\12.png" />
+    <Content Include="images\tiles\personal finance\13.png" />
+    <Content Include="images\tiles\personal finance\14.png" />
+    <Content Include="images\tiles\personal finance\15.png" />
+    <Content Include="images\tiles\personal finance\16.png" />
+    <Content Include="images\tiles\personal finance\17.png" />
+    <Content Include="images\tiles\personal finance\18.png" />
+    <Content Include="images\tiles\personal finance\19.png" />
+    <Content Include="images\tiles\personal finance\2.png" />
+    <Content Include="images\tiles\personal finance\20.png" />
+    <Content Include="images\tiles\personal finance\21.png" />
+    <Content Include="images\tiles\personal finance\3.png" />
+    <Content Include="images\tiles\personal finance\4.png" />
+    <Content Include="images\tiles\personal finance\5.png" />
+    <Content Include="images\tiles\personal finance\6.png" />
+    <Content Include="images\tiles\personal finance\7.png" />
+    <Content Include="images\tiles\personal finance\8.png" />
+    <Content Include="images\tiles\personal finance\9.png" />
+    <Content Include="images\tiles\photo\0.png" />
+    <Content Include="images\tiles\photo\1.png" />
+    <Content Include="images\tiles\photo\10.png" />
+    <Content Include="images\tiles\photo\11.png" />
+    <Content Include="images\tiles\photo\12.png" />
+    <Content Include="images\tiles\photo\13.png" />
+    <Content Include="images\tiles\photo\14.png" />
+    <Content Include="images\tiles\photo\15.png" />
+    <Content Include="images\tiles\photo\16.png" />
+    <Content Include="images\tiles\photo\17.png" />
+    <Content Include="images\tiles\photo\18.png" />
+    <Content Include="images\tiles\photo\19.png" />
+    <Content Include="images\tiles\photo\2.png" />
+    <Content Include="images\tiles\photo\20.png" />
+    <Content Include="images\tiles\photo\21.png" />
+    <Content Include="images\tiles\photo\3.png" />
+    <Content Include="images\tiles\photo\4.png" />
+    <Content Include="images\tiles\photo\5.png" />
+    <Content Include="images\tiles\photo\6.png" />
+    <Content Include="images\tiles\photo\7.png" />
+    <Content Include="images\tiles\photo\8.png" />
+    <Content Include="images\tiles\photo\9.png" />
+    <Content Include="images\tiles\social\0.png" />
+    <Content Include="images\tiles\social\1.png" />
+    <Content Include="images\tiles\social\10.png" />
+    <Content Include="images\tiles\social\11.png" />
+    <Content Include="images\tiles\social\12.png" />
+    <Content Include="images\tiles\social\13.png" />
+    <Content Include="images\tiles\social\14.png" />
+    <Content Include="images\tiles\social\15.png" />
+    <Content Include="images\tiles\social\16.png" />
+    <Content Include="images\tiles\social\17.png" />
+    <Content Include="images\tiles\social\18.png" />
+    <Content Include="images\tiles\social\19.png" />
+    <Content Include="images\tiles\social\2.png" />
+    <Content Include="images\tiles\social\20.png" />
+    <Content Include="images\tiles\social\21.png" />
+    <Content Include="images\tiles\social\3.png" />
+    <Content Include="images\tiles\social\4.png" />
+    <Content Include="images\tiles\social\5.png" />
+    <Content Include="images\tiles\social\6.png" />
+    <Content Include="images\tiles\social\7.png" />
+    <Content Include="images\tiles\social\8.png" />
+    <Content Include="images\tiles\social\9.png" />
+    <Content Include="images\tiles\sports\0.png" />
+    <Content Include="images\tiles\sports\1.png" />
+    <Content Include="images\tiles\sports\10.png" />
+    <Content Include="images\tiles\sports\11.png" />
+    <Content Include="images\tiles\sports\12.png" />
+    <Content Include="images\tiles\sports\13.png" />
+    <Content Include="images\tiles\sports\14.png" />
+    <Content Include="images\tiles\sports\15.png" />
+    <Content Include="images\tiles\sports\16.png" />
+    <Content Include="images\tiles\sports\17.png" />
+    <Content Include="images\tiles\sports\18.png" />
+    <Content Include="images\tiles\sports\19.png" />
+    <Content Include="images\tiles\sports\2.png" />
+    <Content Include="images\tiles\sports\20.png" />
+    <Content Include="images\tiles\sports\21.png" />
+    <Content Include="images\tiles\sports\3.png" />
+    <Content Include="images\tiles\sports\4.png" />
+    <Content Include="images\tiles\sports\5.png" />
+    <Content Include="images\tiles\sports\6.png" />
+    <Content Include="images\tiles\sports\7.png" />
+    <Content Include="images\tiles\sports\8.png" />
+    <Content Include="images\tiles\sports\9.png" />
+    <Content Include="images\tiles\tools_productivity\0.png" />
+    <Content Include="images\tiles\tools_productivity\1.png" />
+    <Content Include="images\tiles\tools_productivity\10.png" />
+    <Content Include="images\tiles\tools_productivity\11.png" />
+    <Content Include="images\tiles\tools_productivity\12.png" />
+    <Content Include="images\tiles\tools_productivity\13.png" />
+    <Content Include="images\tiles\tools_productivity\14.png" />
+    <Content Include="images\tiles\tools_productivity\15.png" />
+    <Content Include="images\tiles\tools_productivity\16.png" />
+    <Content Include="images\tiles\tools_productivity\17.png" />
+    <Content Include="images\tiles\tools_productivity\18.png" />
+    <Content Include="images\tiles\tools_productivity\19.png" />
+    <Content Include="images\tiles\tools_productivity\2.png" />
+    <Content Include="images\tiles\tools_productivity\20.png" />
+    <Content Include="images\tiles\tools_productivity\21.png" />
+    <Content Include="images\tiles\tools_productivity\3.png" />
+    <Content Include="images\tiles\tools_productivity\4.png" />
+    <Content Include="images\tiles\tools_productivity\5.png" />
+    <Content Include="images\tiles\tools_productivity\6.png" />
+    <Content Include="images\tiles\tools_productivity\7.png" />
+    <Content Include="images\tiles\tools_productivity\8.png" />
+    <Content Include="images\tiles\tools_productivity\9.png" />
+    <Content Include="images\tiles\travel_navigation\0.png" />
+    <Content Include="images\tiles\travel_navigation\1.png" />
+    <Content Include="images\tiles\travel_navigation\10.png" />
+    <Content Include="images\tiles\travel_navigation\11.png" />
+    <Content Include="images\tiles\travel_navigation\12.png" />
+    <Content Include="images\tiles\travel_navigation\13.png" />
+    <Content Include="images\tiles\travel_navigation\14.png" />
+    <Content Include="images\tiles\travel_navigation\15.png" />
+    <Content Include="images\tiles\travel_navigation\16.png" />
+    <Content Include="images\tiles\travel_navigation\17.png" />
+    <Content Include="images\tiles\travel_navigation\18.png" />
+    <Content Include="images\tiles\travel_navigation\19.png" />
+    <Content Include="images\tiles\travel_navigation\2.png" />
+    <Content Include="images\tiles\travel_navigation\20.png" />
+    <Content Include="images\tiles\travel_navigation\21.png" />
+    <Content Include="images\tiles\travel_navigation\3.png" />
+    <Content Include="images\tiles\travel_navigation\4.png" />
+    <Content Include="images\tiles\travel_navigation\5.png" />
+    <Content Include="images\tiles\travel_navigation\6.png" />
+    <Content Include="images\tiles\travel_navigation\7.png" />
+    <Content Include="images\tiles\travel_navigation\8.png" />
+    <Content Include="images\tiles\travel_navigation\9.png" />
+    <Content Include="index.html" />
+    <Content Include="journey_images\0-18male.png" />
+    <Content Include="journey_images\0-18_female.png" />
+    <Content Include="journey_images\10a.jpg" />
+    <Content Include="journey_images\10b.jpg" />
+    <Content Include="journey_images\11a.jpg" />
+    <Content Include="journey_images\11b.jpg" />
+    <Content Include="journey_images\12a.jpg" />
+    <Content Include="journey_images\12b.jpg" />
+    <Content Include="journey_images\13a.jpg" />
+    <Content Include="journey_images\13b.jpg" />
+    <Content Include="journey_images\14101477-sea-animals-collection.jpg" />
+    <Content Include="journey_images\14a.jpg" />
+    <Content Include="journey_images\14b.jpg" />
+    <Content Include="journey_images\15a.jpg" />
+    <Content Include="journey_images\15b.jpg" />
+    <Content Include="journey_images\16a.jpg" />
+    <Content Include="journey_images\16b.jpg" />
+    <Content Include="journey_images\17a.jpg" />
+    <Content Include="journey_images\17b.jpg" />
+    <Content Include="journey_images\18-30female.png" />
+    <Content Include="journey_images\18-30male.png" />
+    <Content Include="journey_images\18a.jpg" />
+    <Content Include="journey_images\18b.jpg" />
+    <Content Include="journey_images\19a.jpg" />
+    <Content Include="journey_images\19b.jpg" />
+    <Content Include="journey_images\1a.jpg" />
+    <Content Include="journey_images\1b.jpg" />
+    <Content Include="journey_images\20a.jpg" />
+    <Content Include="journey_images\20b.jpg" />
+    <Content Include="journey_images\21a.jpg" />
+    <Content Include="journey_images\21b.jpg" />
+    <Content Include="journey_images\22a.jpeg" />
+    <Content Include="journey_images\22b.jpeg" />
+    <Content Include="journey_images\23a.jpeg" />
+    <Content Include="journey_images\23b.jpeg" />
+    <Content Include="journey_images\24a.jpg" />
+    <Content Include="journey_images\24b.jpg" />
+    <Content Include="journey_images\25a.jpg" />
+    <Content Include="journey_images\25b.jpg" />
+    <Content Include="journey_images\26a.jpg" />
+    <Content Include="journey_images\26b.jpg" />
+    <Content Include="journey_images\27a.jpg" />
+    <Content Include="journey_images\27b.jpg" />
+    <Content Include="journey_images\28a.jpg" />
+    <Content Include="journey_images\28b.jpg" />
+    <Content Include="journey_images\29a.jpg" />
+    <Content Include="journey_images\29b.jpg" />
+    <Content Include="journey_images\2a.jpg" />
+    <Content Include="journey_images\2b.jpg" />
+    <Content Include="journey_images\2c.jpg" />
+    <Content Include="journey_images\30-50female.png" />
+    <Content Include="journey_images\30-50male.png" />
+    <Content Include="journey_images\3a.jpg" />
+    <Content Include="journey_images\3b.jpg" />
+    <Content Include="journey_images\4a.jpg" />
+    <Content Include="journey_images\4b.jpg" />
+    <Content Include="journey_images\50plusfemale.png" />
+    <Content Include="journey_images\50plusmale.png" />
+    <Content Include="journey_images\5a.jpg" />
+    <Content Include="journey_images\5b.jpg" />
+    <Content Include="journey_images\6a.jpg" />
+    <Content Include="journey_images\6b.jpg" />
+    <Content Include="journey_images\7460763-sea-animals.jpg" />
+    <Content Include="journey_images\7a.jpg" />
+    <Content Include="journey_images\7b.jpg" />
+    <Content Include="journey_images\8a.jpg" />
+    <Content Include="journey_images\8b.jpg" />
+    <Content Include="journey_images\9a.jpg" />
+    <Content Include="journey_images\9b.jpg" />
+    <Content Include="journey_images\A1.jpg" />
+    <Content Include="journey_images\A10.jpg" />
+    <Content Include="journey_images\A2.jpg" />
+    <Content Include="journey_images\A3.jpg" />
+    <Content Include="journey_images\A4.jpg" />
+    <Content Include="journey_images\A5.jpg" />
+    <Content Include="journey_images\A6.jpg" />
+    <Content Include="journey_images\A7.jpg" />
+    <Content Include="journey_images\A8.jpg" />
+    <Content Include="journey_images\A9.jpg" />
+    <Content Include="journey_images\B1.jpg" />
+    <Content Include="journey_images\B10.jpg" />
+    <Content Include="journey_images\B2.jpg" />
+    <Content Include="journey_images\B3.jpg" />
+    <Content Include="journey_images\B4.jpg" />
+    <Content Include="journey_images\B5.jpg" />
+    <Content Include="journey_images\B6.jpg" />
+    <Content Include="journey_images\B7.jpg" />
+    <Content Include="journey_images\B8.jpg" />
+    <Content Include="journey_images\B9.jpg" />
+    <Content Include="journey_images\back1.jpg" />
+    <Content Include="journey_images\back2.png" />
+    <Content Include="journey_images\back22.png" />
+    <Content Include="journey_images\back_1.jpg" />
+    <Content Include="journey_images\back_2.jpg" />
+    <Content Include="journey_images\back_2.png" />
+    <Content Include="journey_images\black-wallpapers.jpg" />
+    <Content Include="journey_images\bubble.png" />
+    <Content Include="journey_images\coral.png" />
+    <Content Include="journey_images\crab.png" />
+    <Content Include="journey_images\fish.png" />
+    <Content Include="journey_images\jellyfish.png" />
+    <Content Include="journey_images\phone.png" />
+    <Content Include="journey_images\seahouse.png" />
+    <Content Include="journey_images\shell.png" />
+    <Content Include="journey_images\spiralshell.png" />
+    <Content Include="journey_images\starfish.png" />
+    <Content Include="journey_images\turtle.png" />
+    <Content Include="messaging_samll.png" />
+    <Content Include="StartScreen.aspx" />
+    <Content Include="Thankyou.htm" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppCode\Elements.cs" />
+    <Compile Include="AppCode\GenerateTileInfo.cs" />
+    <Compile Include="AppCode\GenerateTiles.cs" />
+    <Compile Include="AppCode\RandomStringArrayTool.cs" />
+    <Compile Include="AppCode\StoreData.cs" />
+    <Compile Include="AppCode\template4.cs" />
+    <Compile Include="AppCode\template3.cs" />
+    <Compile Include="AppCode\template2.cs" />
+    <Compile Include="AppCode\Record.cs" />
+    <Compile Include="AppCode\ScreenTemplate.cs" />
+    <Compile Include="AppCode\Startpoint.cs" />
+    <Compile Include="AppCode\template1.cs" />
+    <Compile Include="AppCode\template5.cs" />
+    <Compile Include="AppCode\template6.cs" />
+    <Compile Include="AppCode\Tile.cs" />
+    <Compile Include="AppCode\WeightComputer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartScreen.aspx.cs">
+      <DependentUpon>StartScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartScreen.aspx.designer.cs">
+      <DependentUpon>StartScreen.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\tiles\book_reference\Thumbs.db" />
+    <None Include="images\tiles\build-in\Thumbs.db" />
+    <None Include="images\tiles\business\Thumbs.db" />
+    <None Include="images\tiles\education\Thumbs.db" />
+    <None Include="images\tiles\entertainment\Thumbs.db" />
+    <None Include="images\tiles\government_politics\Thumbs.db" />
+    <None Include="images\tiles\health_fitness\Thumbs.db" />
+    <None Include="images\tiles\kids_family\Thumbs.db" />
+    <None Include="images\tiles\travel_navigation\Thumbs.db" />
+    <None Include="journey_images\search.url" />
+    <None Include="journey_images\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\up-plus - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\up-plus - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\upplustest - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="journey_images\App_LocalResources\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49617</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,12 @@
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\bin\Debug\AprioriAlgorithm.exe
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\bin\Debug\AprioriAlgorithm.pdb
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.exe
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.pdb
+\\randon\etc\projects\current\up-plus\Code\modified_Algorithm\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.exe
+\\randon\etc\projects\current\up-plus\Code\modified_Algorithm\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.pdb
+\\randon.andrew.ad.cmu.edu\etc\projects\2012_semester_3\up-plus\Code\FINAL CODE\Final Algorithm for Data Mining\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.exe
+\\randon.andrew.ad.cmu.edu\etc\projects\2012_semester_3\up-plus\Code\FINAL CODE\Final Algorithm for Data Mining\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.pdb
+\\randon\etc\projects\current\up-plus\Code\FINAL CODE\Final Algorithm for Data Mining\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.exe
+\\randon\etc\projects\current\up-plus\Code\FINAL CODE\Final Algorithm for Data Mining\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.pdb
+\\randon.andrew.ad.cmu.edu\etc\projects\2012_semester_3\up-plus\Code\FINAL CODE\Final Algorithm for Data Mining\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\ResolveAssemblyReference.cache

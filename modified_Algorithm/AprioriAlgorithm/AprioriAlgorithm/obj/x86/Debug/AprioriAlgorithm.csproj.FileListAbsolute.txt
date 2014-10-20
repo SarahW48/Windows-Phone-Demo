@@ -1,0 +1,5 @@
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\bin\Debug\AprioriAlgorithm.exe
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\bin\Debug\AprioriAlgorithm.pdb
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.exe
+c:\users\nmao\documents\visual studio 2010\Projects\AprioriAlgorithm\AprioriAlgorithm\obj\x86\Debug\AprioriAlgorithm.pdb
